@@ -32,7 +32,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         FrameCrud = new javax.swing.JFrame();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TabbedPane = new javax.swing.JTabbedPane();
         PanelLaptop = new javax.swing.JPanel();
         LabelIP = new javax.swing.JLabel();
         FieldIP = new javax.swing.JTextField();
@@ -67,7 +67,10 @@ public class Menu extends javax.swing.JFrame {
         LabelTipoAlmacen1 = new javax.swing.JLabel();
         BtnSDD = new javax.swing.JRadioButton();
         BtnGuardarDesktop1 = new javax.swing.JButton();
+        BtnRegresarDesk = new javax.swing.JButton();
         PanelListar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TextAreaListar = new javax.swing.JTextArea();
         PanelEliminar = new javax.swing.JPanel();
         BtnGrupoRGB = new javax.swing.ButtonGroup();
         GrupoGrafica = new javax.swing.ButtonGroup();
@@ -77,6 +80,14 @@ public class Menu extends javax.swing.JFrame {
         BtnIngresarPC = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
 
+        TabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabbedPaneStateChanged(evt);
+            }
+        });
+
+        PanelLaptop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         PanelLaptop.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -132,7 +143,7 @@ public class Menu extends javax.swing.JFrame {
         LabelResolucion1.setText("Resolucion");
         PanelLaptop.add(LabelResolucion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
 
-        jTabbedPane1.addTab("Agregar Laptop", PanelLaptop);
+        TabbedPane.addTab("Agregar Laptop", PanelLaptop);
 
         LabelRam1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelRam1.setText("Cantidad de RAM");
@@ -168,9 +179,18 @@ public class Menu extends javax.swing.JFrame {
         BtnSDD.setText("SDD");
 
         BtnGuardarDesktop1.setText("Guardar PC de Escritorio");
+        BtnGuardarDesktop1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnGuardarDesktop1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGuardarDesktop1ActionPerformed(evt);
+            }
+        });
+
+        BtnRegresarDesk.setText("Regresar");
+        BtnRegresarDesk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnRegresarDesk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegresarDeskActionPerformed(evt);
             }
         });
 
@@ -204,23 +224,26 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(LabelGrafica1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(FieldHost1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(BtnTieneGraf)
-                .addGap(20, 20, 20)
-                .addComponent(BtnNoTieneGraf))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
                 .addGap(190, 190, 190)
                 .addComponent(LabelTipoAlmacen1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(BtnHDD)
-                .addGap(34, 34, 34)
-                .addComponent(BtnSDD))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(BtnGuardarDesktop1))
+            .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnRegresarDesk, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(FieldHost1))
+                .addGap(55, 55, 55)
+                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addComponent(BtnTieneGraf)
+                        .addGap(20, 20, 20)
+                        .addComponent(BtnNoTieneGraf))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEscritorioLayout.createSequentialGroup()
+                        .addComponent(BtnHDD)
+                        .addGap(34, 34, 34)
+                        .addComponent(BtnSDD))))
         );
         PanelEscritorioLayout.setVerticalGroup(
             PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,28 +286,43 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(BtnNoTieneGraf))))
                 .addGap(12, 12, 12)
                 .addComponent(LabelTipoAlmacen1)
-                .addGap(16, 16, 16)
                 .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnHDD)
-                    .addComponent(BtnSDD))
+                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnHDD)
+                            .addComponent(BtnSDD)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEscritorioLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(BtnRegresarDesk, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(67, 67, 67)
                 .addComponent(BtnGuardarDesktop1))
         );
 
-        jTabbedPane1.addTab("Agregar PC de Escritorio", PanelEscritorio);
+        TabbedPane.addTab("Agregar PC de Escritorio", PanelEscritorio);
+
+        TextAreaListar.setColumns(20);
+        TextAreaListar.setRows(5);
+        jScrollPane1.setViewportView(TextAreaListar);
 
         javax.swing.GroupLayout PanelListarLayout = new javax.swing.GroupLayout(PanelListar);
         PanelListar.setLayout(PanelListarLayout);
         PanelListarLayout.setHorizontalGroup(
             PanelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(PanelListarLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         PanelListarLayout.setVerticalGroup(
             PanelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(PanelListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Listar PC", PanelListar);
+        TabbedPane.addTab("Listar PC", PanelListar);
 
         javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
         PanelEliminar.setLayout(PanelEliminarLayout);
@@ -297,17 +335,17 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Eliminar PC", PanelEliminar);
+        TabbedPane.addTab("Eliminar PC", PanelEliminar);
 
         javax.swing.GroupLayout FrameCrudLayout = new javax.swing.GroupLayout(FrameCrud.getContentPane());
         FrameCrud.getContentPane().setLayout(FrameCrudLayout);
         FrameCrudLayout.setHorizontalGroup(
             FrameCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(TabbedPane)
         );
         FrameCrudLayout.setVerticalGroup(
             FrameCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(TabbedPane)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -439,6 +477,15 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "PC de Escritorio Agregada");
     }//GEN-LAST:event_BtnGuardarDesktop1ActionPerformed
 
+    private void BtnRegresarDeskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarDeskActionPerformed
+        FrameCrud.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_BtnRegresarDeskActionPerformed
+
+    private void TabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneStateChanged
+        TextAreaListar.setText(listarPC());
+    }//GEN-LAST:event_TabbedPaneStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -474,6 +521,17 @@ public class Menu extends javax.swing.JFrame {
         });
     }
 
+    public  String listarPC() {
+
+        String cadena = "";
+        for (Object o : compus) {
+            if (o instanceof PC) {
+                cadena += compus.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
     ArrayList<PC> compus = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPC;
@@ -484,6 +542,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton BtnIngresarPC;
     private javax.swing.JRadioButton BtnNoTieneGraf;
     private javax.swing.JButton BtnRegresar;
+    private javax.swing.JButton BtnRegresarDesk;
     private javax.swing.JRadioButton BtnSDD;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JRadioButton BtnTieneGraf;
@@ -520,6 +579,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel PanelEscritorio;
     private javax.swing.JPanel PanelLaptop;
     private javax.swing.JPanel PanelListar;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane TabbedPane;
+    private javax.swing.JTextArea TextAreaListar;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,22 +7,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+              <Component id="TabbedPane" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+              <Component id="TabbedPane" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+        <Container class="javax.swing.JTabbedPane" name="TabbedPane">
+          <Properties>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="TabbedPaneStateChanged"/>
+          </Events>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="PanelLaptop">
               <Properties>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
@@ -246,26 +257,32 @@
                           <Component id="LabelGrafica1" min="-2" pref="400" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                          <Component id="FieldHost1" min="-2" pref="91" max="-2" attributes="0"/>
-                          <EmptySpace min="55" pref="55" max="-2" attributes="0"/>
-                          <Component id="BtnTieneGraf" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="BtnNoTieneGraf" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
                           <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
                           <Component id="LabelTipoAlmacen1" min="-2" pref="400" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
-                          <Component id="BtnHDD" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
-                          <Component id="BtnSDD" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
                           <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
                           <Component id="BtnGuardarDesktop1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="BtnRegresarDesk" pref="91" max="32767" attributes="0"/>
+                              <Component id="FieldHost1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="55" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="BtnTieneGraf" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="BtnNoTieneGraf" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="BtnHDD" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                                  <Component id="BtnSDD" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -322,12 +339,20 @@
                           </Group>
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                           <Component id="LabelTipoAlmacen1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="BtnHDD" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnSDD" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="BtnHDD" min="-2" max="-2" attributes="0"/>
+                                      <Component id="BtnSDD" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Component id="BtnRegresarDesk" min="-2" pref="38" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="67" pref="67" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                           <Component id="BtnGuardarDesktop1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -435,9 +460,23 @@
                 <Component class="javax.swing.JButton" name="BtnGuardarDesktop1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar PC de Escritorio"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnGuardarDesktop1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="BtnRegresarDesk">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Regresar"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnRegresarDeskActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -454,15 +493,40 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="590" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="503" max="-2" attributes="0"/>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="480" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="440" max="-2" attributes="0"/>
+                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="TextAreaListar">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="PanelEliminar">
               <Constraints>
