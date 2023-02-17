@@ -11,26 +11,26 @@ package josueham_examen1p2;
  * @author skxka
  */
 public class Laptop extends PC{
-    private String mask, resolucion;
+    private String marca, resolucion;
     private boolean RGB;
 
     public Laptop() {
         super();
     }
 
-    public Laptop(String mask, String resolucion, boolean RGB, String IP, String mascara, String hostname) {
+    public Laptop(String marca, String resolucion, boolean RGB, String IP, String mascara, String hostname) {
         super(IP, mascara, hostname);
-        this.mask = mask;
+        this.marca = marca;
         this.resolucion = resolucion;
         this.RGB = RGB;
     }
 
-    public String getMask() {
-        return mask;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setMask(String mask) {
-        this.mask = mask;
+    public void setMask(String marca) {
+        this.marca = marca;
     }
 
     public String getResolucion() {
@@ -51,7 +51,7 @@ public class Laptop extends PC{
 
     @Override
     public String toString() {
-        return "Mascara: " + mask 
+        return "Mascara: " + marca
                 + "\nResolucion: " + resolucion 
                 + "\nRGB: " + RGB;
     }

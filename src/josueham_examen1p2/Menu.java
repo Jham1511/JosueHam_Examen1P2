@@ -4,6 +4,7 @@
  */
 package josueham_examen1p2;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +19,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        FrameCrud.setSize(472, 390);
+        FrameCrud.setSize(459, 450);
     }
 
     /**
@@ -32,53 +33,122 @@ public class Menu extends javax.swing.JFrame {
 
         FrameCrud = new javax.swing.JFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        PanelAgregar = new javax.swing.JPanel();
+        LabelIP = new javax.swing.JLabel();
+        FieldIP = new javax.swing.JTextField();
+        LabelMask = new javax.swing.JLabel();
+        FieldMask = new javax.swing.JTextField();
+        LabelHost = new javax.swing.JLabel();
+        FieldHost = new javax.swing.JTextField();
+        BtnPCDesk = new javax.swing.JButton();
+        BtnLaptop = new javax.swing.JButton();
+        BtnRegresar = new javax.swing.JButton();
+        BtnGuardar = new javax.swing.JButton();
+        PanelListar = new javax.swing.JPanel();
+        PanelEliminar = new javax.swing.JPanel();
+        FrameLaptop = new javax.swing.JFrame();
+        LabelMarca = new javax.swing.JLabel();
+        FieldMarca = new javax.swing.JTextField();
+        LabelRGB = new javax.swing.JLabel();
+        FieldRes = new javax.swing.JTextField();
+        LabelResolucion = new javax.swing.JLabel();
+        OpcionSiRGB = new javax.swing.JRadioButton();
+        OpcionNoRGB = new javax.swing.JRadioButton();
+        BtnGuardarLaptop = new javax.swing.JButton();
+        BtnGrupoRGB = new javax.swing.ButtonGroup();
+        FrameEscritorio = new javax.swing.JFrame();
+        LabelCantAlmacen = new javax.swing.JLabel();
+        FieldRAM = new javax.swing.JTextField();
+        LabelRam = new javax.swing.JLabel();
+        FieldAlmacen = new javax.swing.JTextField();
+        LabelTipoAlmacen = new javax.swing.JLabel();
+        BtnTieneGraf = new javax.swing.JRadioButton();
+        BtnNoTieneGraf = new javax.swing.JRadioButton();
+        LabelGrafica1 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        BtnGuardarDesktop = new javax.swing.JButton();
+        GrupoGrafica = new javax.swing.ButtonGroup();
+        GrupoAlmacen = new javax.swing.ButtonGroup();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         PanelPrincipal = new javax.swing.JPanel();
         LabelTitulo = new javax.swing.JLabel();
         BtnCrudPC = new javax.swing.JButton();
         BtnIngresarPC = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelAgregar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        PanelAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelIP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelIP.setText("IP");
+        PanelAgregar.add(LabelIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 29, -1, -1));
+        PanelAgregar.add(FieldIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 59, 90, 40));
+
+        LabelMask.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelMask.setText("Máscara de Red");
+        PanelAgregar.add(LabelMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 117, -1, -1));
+        PanelAgregar.add(FieldMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, 90, 40));
+
+        LabelHost.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelHost.setText("HostName");
+        PanelAgregar.add(LabelHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 212, -1, -1));
+        PanelAgregar.add(FieldHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 248, 91, 40));
+
+        BtnPCDesk.setText("Agregar de Escritorio");
+        BtnPCDesk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPCDeskActionPerformed(evt);
+            }
+        });
+        PanelAgregar.add(BtnPCDesk, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 159, -1, 40));
+
+        BtnLaptop.setText("Agregar Laptop");
+        BtnLaptop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLaptopActionPerformed(evt);
+            }
+        });
+        PanelAgregar.add(BtnLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 69, -1, 40));
+
+        BtnRegresar.setText("Regresar");
+        PanelAgregar.add(BtnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 130, 40));
+
+        BtnGuardar.setText("Guardar Usuario");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
+        PanelAgregar.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, 30));
+
+        jTabbedPane1.addTab("Agregar PC", PanelAgregar);
+
+        javax.swing.GroupLayout PanelListarLayout = new javax.swing.GroupLayout(PanelListar);
+        PanelListar.setLayout(PanelListarLayout);
+        PanelListarLayout.setHorizontalGroup(
+            PanelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 454, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
+        PanelListarLayout.setVerticalGroup(
+            PanelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Listar PC", PanelListar);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
+        PanelEliminar.setLayout(PanelEliminarLayout);
+        PanelEliminarLayout.setHorizontalGroup(
+            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 454, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
+        PanelEliminarLayout.setVerticalGroup(
+            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Eliminar PC", PanelEliminar);
 
         javax.swing.GroupLayout FrameCrudLayout = new javax.swing.GroupLayout(FrameCrud.getContentPane());
         FrameCrud.getContentPane().setLayout(FrameCrudLayout);
@@ -89,6 +159,168 @@ public class Menu extends javax.swing.JFrame {
         FrameCrudLayout.setVerticalGroup(
             FrameCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+        );
+
+        LabelMarca.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelMarca.setText("Marca de la Laptop");
+
+        LabelRGB.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelRGB.setText("RGB");
+
+        LabelResolucion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelResolucion.setText("Resolucion");
+
+        BtnGrupoRGB.add(OpcionSiRGB);
+        OpcionSiRGB.setText("Si tiene");
+
+        OpcionNoRGB.setText("No tiene");
+
+        BtnGuardarLaptop.setText("Guardar Laptop");
+
+        javax.swing.GroupLayout FrameLaptopLayout = new javax.swing.GroupLayout(FrameLaptop.getContentPane());
+        FrameLaptop.getContentPane().setLayout(FrameLaptopLayout);
+        FrameLaptopLayout.setHorizontalGroup(
+            FrameLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameLaptopLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(FrameLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FrameLaptopLayout.createSequentialGroup()
+                        .addComponent(OpcionSiRGB)
+                        .addGap(18, 18, 18)
+                        .addComponent(OpcionNoRGB)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(FrameLaptopLayout.createSequentialGroup()
+                        .addComponent(LabelRGB)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(FrameLaptopLayout.createSequentialGroup()
+                        .addGroup(FrameLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LabelResolucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FrameLaptopLayout.createSequentialGroup()
+                                .addGroup(FrameLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelMarca)
+                                    .addComponent(FieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FieldRes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 20, Short.MAX_VALUE)))
+                        .addContainerGap(231, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FrameLaptopLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnGuardarLaptop, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        FrameLaptopLayout.setVerticalGroup(
+            FrameLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameLaptopLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(LabelMarca)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(LabelResolucion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FieldRes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LabelRGB)
+                .addGap(18, 18, 18)
+                .addGroup(FrameLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OpcionSiRGB)
+                    .addComponent(OpcionNoRGB))
+                .addGap(36, 36, 36)
+                .addComponent(BtnGuardarLaptop)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        LabelCantAlmacen.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelCantAlmacen.setText("Cantidad de Almacenamiento");
+
+        FieldRAM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldRAMActionPerformed(evt);
+            }
+        });
+
+        LabelRam.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelRam.setText("Cantidad de RAM");
+
+        LabelTipoAlmacen.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelTipoAlmacen.setText("Tipo de Almacenamiento");
+
+        GrupoGrafica.add(BtnTieneGraf);
+        BtnTieneGraf.setText("Si tiene");
+
+        GrupoGrafica.add(BtnNoTieneGraf);
+        BtnNoTieneGraf.setText("No tiene");
+
+        LabelGrafica1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelGrafica1.setText("Tarjeta Gráfica");
+
+        GrupoAlmacen.add(jRadioButton1);
+        jRadioButton1.setText("HDD");
+
+        GrupoAlmacen.add(jRadioButton2);
+        jRadioButton2.setText("SDD");
+
+        BtnGuardarDesktop.setText("Guardar PC de Escritorio");
+        BtnGuardarDesktop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarDesktopActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FrameEscritorioLayout = new javax.swing.GroupLayout(FrameEscritorio.getContentPane());
+        FrameEscritorio.getContentPane().setLayout(FrameEscritorioLayout);
+        FrameEscritorioLayout.setHorizontalGroup(
+            FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameEscritorioLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelGrafica1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(FrameEscritorioLayout.createSequentialGroup()
+                        .addGroup(FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FrameEscritorioLayout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton2))
+                            .addGroup(FrameEscritorioLayout.createSequentialGroup()
+                                .addComponent(BtnTieneGraf)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtnNoTieneGraf))
+                            .addGroup(FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(BtnGuardarDesktop)
+                                .addGroup(FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(LabelTipoAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LabelCantAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LabelRam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(FieldRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FieldAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 123, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        FrameEscritorioLayout.setVerticalGroup(
+            FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameEscritorioLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(LabelRam)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FieldRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(LabelCantAlmacen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FieldAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(LabelGrafica1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnTieneGraf)
+                    .addComponent(BtnNoTieneGraf))
+                .addGap(18, 18, 18)
+                .addComponent(LabelTipoAlmacen)
+                .addGap(18, 18, 18)
+                .addGroup(FrameEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(18, 18, 18)
+                .addComponent(BtnGuardarDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -161,11 +393,40 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnCrudPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrudPCActionPerformed
-       FrameCrud.setLocationRelativeTo(this);
-        FrameCrud.setVisible(true);
         PanelPrincipal.setVisible(false);
+        FrameCrud.setLocationRelativeTo(null);
+        FrameCrud.setVisible(true);
+
 
     }//GEN-LAST:event_BtnCrudPCActionPerformed
+
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        String ip = FieldIP.getText();
+        String mask = FieldMask.getText();
+        String Hostname = FieldHost.getText();
+
+        
+    }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void FieldRAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldRAMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldRAMActionPerformed
+
+    private void BtnGuardarDesktopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarDesktopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnGuardarDesktopActionPerformed
+
+    private void BtnLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLaptopActionPerformed
+        FrameLaptop.setSize(453, 425);
+        FrameLaptop.setLocationRelativeTo(null);
+        FrameLaptop.setVisible(true);
+    }//GEN-LAST:event_BtnLaptopActionPerformed
+
+    private void BtnPCDeskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPCDeskActionPerformed
+        FrameEscritorio.setSize(459, 500);
+        FrameEscritorio.setLocationRelativeTo(null);
+        FrameEscritorio.setVisible(true);
+    }//GEN-LAST:event_BtnPCDeskActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,17 +462,53 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    ArrayList<PC> compus = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPC;
+    private javax.swing.ButtonGroup BtnGrupoRGB;
+    private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnGuardarDesktop;
+    private javax.swing.JButton BtnGuardarLaptop;
     private javax.swing.JButton BtnIngresarPC;
+    private javax.swing.JButton BtnLaptop;
+    private javax.swing.JRadioButton BtnNoTieneGraf;
+    private javax.swing.JButton BtnPCDesk;
+    private javax.swing.JButton BtnRegresar;
     private javax.swing.JButton BtnSalir;
+    private javax.swing.JRadioButton BtnTieneGraf;
+    private javax.swing.JTextField FieldAlmacen;
+    private javax.swing.JTextField FieldHost;
+    private javax.swing.JTextField FieldIP;
+    private javax.swing.JTextField FieldMarca;
+    private javax.swing.JTextField FieldMask;
+    private javax.swing.JTextField FieldRAM;
+    private javax.swing.JTextField FieldRes;
     private javax.swing.JFrame FrameCrud;
+    private javax.swing.JFrame FrameEscritorio;
+    private javax.swing.JFrame FrameLaptop;
+    private javax.swing.ButtonGroup GrupoAlmacen;
+    private javax.swing.ButtonGroup GrupoGrafica;
+    private javax.swing.JLabel LabelCantAlmacen;
+    private javax.swing.JLabel LabelGrafica1;
+    private javax.swing.JLabel LabelHost;
+    private javax.swing.JLabel LabelIP;
+    private javax.swing.JLabel LabelMarca;
+    private javax.swing.JLabel LabelMask;
+    private javax.swing.JLabel LabelRGB;
+    private javax.swing.JLabel LabelRam;
+    private javax.swing.JLabel LabelResolucion;
+    private javax.swing.JLabel LabelTipoAlmacen;
     private javax.swing.JLabel LabelTitulo;
+    private javax.swing.JRadioButton OpcionNoRGB;
+    private javax.swing.JRadioButton OpcionSiRGB;
+    private javax.swing.JPanel PanelAgregar;
+    private javax.swing.JPanel PanelEliminar;
+    private javax.swing.JPanel PanelListar;
     private javax.swing.JPanel PanelPrincipal;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
