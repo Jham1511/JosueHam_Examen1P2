@@ -473,8 +473,6 @@ public class Menu extends javax.swing.JFrame {
         FrameCrud.setSize(600, 570);
         FrameCrud.setLocationRelativeTo(null);
         FrameCrud.setVisible(true);
-
-
     }//GEN-LAST:event_BtnCrudPCActionPerformed
 
     private void BtnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarActionPerformed
@@ -483,26 +481,65 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRegresarActionPerformed
 
     private void BtnIngresarPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarPCActionPerformed
-        this.setVisible(false);
-        System.out.println(listarPadre());
-        System.out.println("Ingrese la PC que desea: ");
-        int pos = ingrese.nextInt();
-
-        System.out.println(compus.get(pos).getHostname() + "#");
-        String cadena = ingrese.next();
-
-        if (cadena.equals("ping_")) {
-            System.out.println("Ingrese la IP: ");
-            String cad = ingrese.next();
-            String[] tokens = cad.split(".");
-            int dec = Integer.parseInt(tokens[3]);
-            int bin = decToBin(dec);
-            
-        } else if (cadena.equals("show")) {
-            System.out.println(listarPC());
-        } else if (cadena.equals("exit")) {
+        if (compus.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay PC's en el sistema, por favor ingrese");
             this.setVisible(true);
+        } else {
+            this.setVisible(false);
+            System.out.println(listarPadre());
+            System.out.println("Ingrese la PC que desea: ");
+            int pos = ingrese.nextInt();
+
+            System.out.println(compus.get(pos).getHostname() + "#");
+            String cadena = ingrese.next(); //Por si acaso en la ejecucion no te fijaste, aquí es donde se ve el dato despues de ingresar la posicion de la pc
+            //Cuando es por ejemplo andres# se lee
+            if (cadena.equals("ping_") || cadena.equals("ping")) {
+                System.out.println("Ingrese la IP: ");
+                String cad = ingrese.next();
+                String[] tokens = cad.split("\\.");
+                int dec = Integer.parseInt(tokens[3]);
+                int bin = decToBin(dec);
+                String[] tokensAtri = compus.get(pos).getIP().split("\\.");
+                int decAtributo = Integer.parseInt(tokensAtri[3]);
+                int binAtri = decToBin(decAtributo);
+                if (bin == binAtri) {
+                    String[] MaskAtri = compus.get(pos).getMascara().split("\\.");
+                    int decMaskAtri = Integer.parseInt(MaskAtri[3]);
+                    int binMaskAtri = decToBin(decMaskAtri);
+                    if (bin == binMaskAtri) {
+                        System.out.println("Pinging to " + cad + " with 32 bits of data: ");
+                        for (int i = 0; i < 4; i++) {
+                            System.out.println("Reply from " + cad + ":" + " bytes = 32 time=37ms TTL=46");
+                        }
+                        System.out.println("Ping statistics for " + cad + ":");
+                        System.out.println("       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)");
+                    } else if (bin != binMaskAtri) {
+                        System.out.println("Pinging to " + cad + " with 32 bits of data: ");
+                        for (int i = 0; i < 4; i++) {
+                            System.out.println("Reply from " + cad + ":" + " Destination Host Unreachable");
+                        }
+                        System.out.println("Ping statistics for " + cad + ":");
+                        System.out.println("       Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)");
+                    } else if (bin != binAtri) {
+                        System.out.println("Pinging to " + cad + " with 32 bits of data: ");
+                        for (int i = 0; i < 4; i++) {
+                            System.out.println("Request timed out");
+                        }
+                        System.out.println("Ping statistics for " + cad + ":");
+                        System.out.println("       Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)");
+                    }
+
+                }
+            } else if (cadena.equals("show")) {
+                System.out.println(listarPC());
+                this.setVisible(true);
+                
+            } else if (cadena.equals("exit")) {
+                this.setVisible(true);
+            }
+            
         }
+
     }//GEN-LAST:event_BtnIngresarPCActionPerformed
 
     private void BtnGuardarLaptop1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarLaptop1ActionPerformed
@@ -637,7 +674,7 @@ public class Menu extends javax.swing.JFrame {
         }
         return cadena;
     }
-    
+
     public static boolean esNumero(String cadena) {
         for (char o : cadena.toCharArray()) {
             if (!Character.isDigit(o)) {
