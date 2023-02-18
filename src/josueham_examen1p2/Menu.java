@@ -6,16 +6,12 @@ package josueham_examen1p2;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.util.*;
 
-/**
- *
- * @author skxka
- */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+    static Scanner ingrese = new Scanner(System.in);
+
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -108,7 +104,7 @@ public class Menu extends javax.swing.JFrame {
         LabelMask.setText("Máscara de Red");
         PanelLaptop.add(LabelMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 117, -1, -1));
 
-        FieldMask.setText("255.255.255");
+        FieldMask.setText("255.255.255.");
         PanelLaptop.add(FieldMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, 130, 40));
 
         LabelHost.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -487,7 +483,26 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRegresarActionPerformed
 
     private void BtnIngresarPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarPCActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        System.out.println(listarPadre());
+        System.out.println("Ingrese la PC que desea: ");
+        int pos = ingrese.nextInt();
+
+        System.out.println(compus.get(pos).getHostname() + "#");
+        String cadena = ingrese.next();
+
+        if (cadena.equals("ping_")) {
+            System.out.println("Ingrese la IP: ");
+            String cad = ingrese.next();
+            String[] tokens = cad.split(".");
+            int dec = Integer.parseInt(tokens[3]);
+            int bin = decToBin(dec);
+            
+        } else if (cadena.equals("show")) {
+            System.out.println(listarPC());
+        } else if (cadena.equals("exit")) {
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_BtnIngresarPCActionPerformed
 
     private void BtnGuardarLaptop1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarLaptop1ActionPerformed
@@ -507,6 +522,33 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Laptop Agregada");
 
     }//GEN-LAST:event_BtnGuardarLaptop1ActionPerformed
+
+    private void TabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneStateChanged
+        if (TabbedPane.getSelectedIndex() == 3) {
+            TextAreaElim.setText(listarPadre());
+        }
+        if (TabbedPane.getSelectedIndex() == 2) {
+            TextAreaListar.setText(listarPadre());
+        }
+
+    }//GEN-LAST:event_TabbedPaneStateChanged
+
+    private void BtnElimPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimPCActionPerformed
+
+        String cadena = TextFieldElim.getText();
+
+        if (esNumero(cadena)) {
+            compus.remove(Integer.parseInt(cadena));
+            JOptionPane.showMessageDialog(null, "Posicion eliminada exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se aceptan numeros");
+        }
+    }//GEN-LAST:event_BtnElimPCActionPerformed
+
+    private void BtnRegresarDeskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarDeskActionPerformed
+        FrameCrud.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_BtnRegresarDeskActionPerformed
 
     private void BtnGuardarDesktop1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarDesktop1ActionPerformed
         String ip = FieldIP1.getText();
@@ -535,31 +577,6 @@ public class Menu extends javax.swing.JFrame {
         compus.add(new PC_Escritorio(RAM, Alm, tipo, grafica, ip, mask, host));
         JOptionPane.showMessageDialog(null, "PC de Escritorio Agregada");
     }//GEN-LAST:event_BtnGuardarDesktop1ActionPerformed
-
-    private void BtnRegresarDeskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarDeskActionPerformed
-        FrameCrud.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_BtnRegresarDeskActionPerformed
-
-    private void TabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneStateChanged
-        if (TabbedPane.getSelectedIndex() == 3) {
-            TextAreaElim.setText(listarPadre());
-        }
-
-        TextAreaListar.setText(listarPadre());
-    }//GEN-LAST:event_TabbedPaneStateChanged
-
-    private void BtnElimPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimPCActionPerformed
-
-        String cadena = TextFieldElim.getText();
-
-        if (esNumero(cadena)) {
-            compus.remove(Integer.parseInt(cadena));
-            JOptionPane.showMessageDialog(null, "Posicion eliminada exitosamente");
-        } else {
-            JOptionPane.showMessageDialog(null, "Solo se aceptan numeros");
-        }
-    }//GEN-LAST:event_BtnElimPCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -612,7 +629,7 @@ public class Menu extends javax.swing.JFrame {
         String cadena = "";
         for (PC compu : compus) {
             if (compu instanceof PC) {
-                cadena += "Posicion: " +compus.indexOf(compu)
+                cadena += "Posicion: " + compus.indexOf(compu)
                         + "\nIP: " + compu.getIP()
                         + "\nMascara: " + compu.getMascara()
                         + "\nHostName: " + compu.getHostname();
@@ -620,7 +637,7 @@ public class Menu extends javax.swing.JFrame {
         }
         return cadena;
     }
-
+    
     public static boolean esNumero(String cadena) {
         for (char o : cadena.toCharArray()) {
             if (!Character.isDigit(o)) {
@@ -629,6 +646,14 @@ public class Menu extends javax.swing.JFrame {
         }
         return true;
     }
+
+    public int decToBin(int dec) {
+        if (dec < 2) {
+            return dec;
+        } else {
+            return dec % 2 + decToBin(dec / 2) * 10;
+        }
+    }//Fin del metodo de decToBin
     ArrayList<PC> compus = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPC;
