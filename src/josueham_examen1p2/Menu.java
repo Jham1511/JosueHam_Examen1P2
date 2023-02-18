@@ -72,6 +72,12 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TextAreaListar = new javax.swing.JTextArea();
         PanelEliminar = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextAreaElim = new javax.swing.JTextArea();
+        LabelPos = new javax.swing.JLabel();
+        TextFieldElim = new javax.swing.JTextField();
+        BtnElimPC = new javax.swing.JButton();
+        LabelPos1 = new javax.swing.JLabel();
         BtnGrupoRGB = new javax.swing.ButtonGroup();
         GrupoGrafica = new javax.swing.ButtonGroup();
         GrupoAlmacen = new javax.swing.ButtonGroup();
@@ -94,17 +100,21 @@ public class Menu extends javax.swing.JFrame {
         LabelIP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelIP.setText("IP");
         PanelLaptop.add(LabelIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 29, -1, -1));
-        PanelLaptop.add(FieldIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 59, 90, 40));
+
+        FieldIP.setText("192.168.");
+        PanelLaptop.add(FieldIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 59, 130, 40));
 
         LabelMask.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelMask.setText("Máscara de Red");
         PanelLaptop.add(LabelMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 117, -1, -1));
-        PanelLaptop.add(FieldMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, 90, 40));
+
+        FieldMask.setText("255.255.255");
+        PanelLaptop.add(FieldMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, 130, 40));
 
         LabelHost.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelHost.setText("HostName");
         PanelLaptop.add(LabelHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 212, -1, -1));
-        PanelLaptop.add(FieldHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 248, 91, 40));
+        PanelLaptop.add(FieldHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 248, 130, 40));
 
         BtnRegresar.setText("Regresar");
         BtnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +133,7 @@ public class Menu extends javax.swing.JFrame {
         PanelLaptop.add(BtnGuardarLaptop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         OpcionNoRGB1.setText("No tiene");
-        PanelLaptop.add(OpcionNoRGB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        PanelLaptop.add(OpcionNoRGB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
 
         BtnGrupoRGB.add(OpcionSiRGB1);
         OpcionSiRGB1.setText("Si tiene");
@@ -163,8 +173,12 @@ public class Menu extends javax.swing.JFrame {
         LabelIP1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelIP1.setText("IP");
 
+        FieldIP1.setText("192.168.");
+
         LabelMask1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelMask1.setText("Máscara de Red");
+
+        FieldMask1.setText("255.255.255.");
 
         LabelHost1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelHost1.setText("HostName");
@@ -324,15 +338,60 @@ public class Menu extends javax.swing.JFrame {
 
         TabbedPane.addTab("Listar PC", PanelListar);
 
+        TextAreaElim.setColumns(20);
+        TextAreaElim.setRows(5);
+        jScrollPane2.setViewportView(TextAreaElim);
+
+        LabelPos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelPos.setText("Posicion a Eliminar");
+
+        BtnElimPC.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnElimPC.setText("Eliminar");
+        BtnElimPC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnElimPCActionPerformed(evt);
+            }
+        });
+
+        LabelPos1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelPos1.setText("Listas de PC's");
+
         javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
         PanelEliminar.setLayout(PanelEliminarLayout);
         PanelEliminarLayout.setHorizontalGroup(
             PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(PanelEliminarLayout.createSequentialGroup()
+                .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelEliminarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LabelPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TextFieldElim)))
+                    .addGroup(PanelEliminarLayout.createSequentialGroup()
+                        .addGap(234, 234, 234)
+                        .addComponent(BtnElimPC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelEliminarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelPos1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         PanelEliminarLayout.setVerticalGroup(
             PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(PanelEliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelPos1)
+                .addGap(7, 7, 7)
+                .addGroup(PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelEliminarLayout.createSequentialGroup()
+                        .addComponent(LabelPos)
+                        .addGap(18, 18, 18)
+                        .addComponent(TextFieldElim, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(88, 88, 88)
+                .addComponent(BtnElimPC, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         TabbedPane.addTab("Eliminar PC", PanelEliminar);
@@ -483,8 +542,24 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRegresarDeskActionPerformed
 
     private void TabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneStateChanged
-        TextAreaListar.setText(listarPC());
+        if (TabbedPane.getSelectedIndex() == 3) {
+            TextAreaElim.setText(listarPadre());
+        }
+
+        TextAreaListar.setText(listarPadre());
     }//GEN-LAST:event_TabbedPaneStateChanged
+
+    private void BtnElimPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimPCActionPerformed
+
+        String cadena = TextFieldElim.getText();
+
+        if (esNumero(cadena)) {
+            compus.remove(Integer.parseInt(cadena));
+            JOptionPane.showMessageDialog(null, "Posicion eliminada exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se aceptan numeros");
+        }
+    }//GEN-LAST:event_BtnElimPCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,10 +596,10 @@ public class Menu extends javax.swing.JFrame {
         });
     }
 
-    public  String listarPC() {
+    public String listarPC() {
 
         String cadena = "";
-        for (Object o : compus) {
+        for (PC o : compus) {
             if (o instanceof PC) {
                 cadena += compus.indexOf(o) + "- " + o + "\n";
             }
@@ -532,9 +607,32 @@ public class Menu extends javax.swing.JFrame {
         return cadena;
 
     }//Fin metodo listar
+
+    public String listarPadre() {
+        String cadena = "";
+        for (PC compu : compus) {
+            if (compu instanceof PC) {
+                cadena += "Posicion: " +compus.indexOf(compu)
+                        + "\nIP: " + compu.getIP()
+                        + "\nMascara: " + compu.getMascara()
+                        + "\nHostName: " + compu.getHostname();
+            }
+        }
+        return cadena;
+    }
+
+    public static boolean esNumero(String cadena) {
+        for (char o : cadena.toCharArray()) {
+            if (!Character.isDigit(o)) {
+                return false;
+            }
+        }
+        return true;
+    }
     ArrayList<PC> compus = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPC;
+    private javax.swing.JButton BtnElimPC;
     private javax.swing.ButtonGroup BtnGrupoRGB;
     private javax.swing.JButton BtnGuardarDesktop1;
     private javax.swing.JButton BtnGuardarLaptop1;
@@ -568,6 +666,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel LabelMarca1;
     private javax.swing.JLabel LabelMask;
     private javax.swing.JLabel LabelMask1;
+    private javax.swing.JLabel LabelPos;
+    private javax.swing.JLabel LabelPos1;
     private javax.swing.JLabel LabelRGB1;
     private javax.swing.JLabel LabelRam1;
     private javax.swing.JLabel LabelResolucion1;
@@ -580,7 +680,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel PanelLaptop;
     private javax.swing.JPanel PanelListar;
     private javax.swing.JTabbedPane TabbedPane;
+    private javax.swing.JTextArea TextAreaElim;
     private javax.swing.JTextArea TextAreaListar;
+    private javax.swing.JTextField TextFieldElim;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
