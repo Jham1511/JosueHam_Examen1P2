@@ -4,6 +4,7 @@
  */
 package josueham_examen1p2;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.*;
@@ -77,11 +78,14 @@ public class Menu extends javax.swing.JFrame {
         BtnGrupoRGB = new javax.swing.ButtonGroup();
         GrupoGrafica = new javax.swing.ButtonGroup();
         GrupoAlmacen = new javax.swing.ButtonGroup();
-        LabelTitulo = new javax.swing.JLabel();
         BtnCrudPC = new javax.swing.JButton();
         BtnIngresarPC = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        LabelTitulo = new javax.swing.JLabel();
 
+        TabbedPane.setBackground(new java.awt.Color(0, 51, 153));
+        TabbedPane.setForeground(new java.awt.Color(255, 255, 255));
         TabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -89,6 +93,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        PanelLaptop.setBackground(new java.awt.Color(153, 153, 255));
         PanelLaptop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         PanelLaptop.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,6 +103,7 @@ public class Menu extends javax.swing.JFrame {
         PanelLaptop.add(LabelIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 29, -1, -1));
 
         FieldIP.setText("192.168.");
+        FieldIP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(FieldIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 59, 130, 40));
 
         LabelMask.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -105,13 +111,18 @@ public class Menu extends javax.swing.JFrame {
         PanelLaptop.add(LabelMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 117, -1, -1));
 
         FieldMask.setText("255.255.255.");
+        FieldMask.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(FieldMask, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, 130, 40));
 
         LabelHost.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelHost.setText("HostName");
         PanelLaptop.add(LabelHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 212, -1, -1));
+
+        FieldHost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(FieldHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 248, 130, 40));
 
+        BtnRegresar.setBackground(new java.awt.Color(0, 51, 153));
+        BtnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         BtnRegresar.setText("Regresar");
         BtnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +131,8 @@ public class Menu extends javax.swing.JFrame {
         });
         PanelLaptop.add(BtnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 130, 40));
 
+        BtnGuardarLaptop1.setBackground(new java.awt.Color(0, 51, 153));
+        BtnGuardarLaptop1.setForeground(new java.awt.Color(255, 255, 255));
         BtnGuardarLaptop1.setText("Guardar Laptop");
         BtnGuardarLaptop1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,16 +142,22 @@ public class Menu extends javax.swing.JFrame {
         PanelLaptop.add(BtnGuardarLaptop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         OpcionNoRGB1.setText("No tiene");
+        OpcionNoRGB1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(OpcionNoRGB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
 
         BtnGrupoRGB.add(OpcionSiRGB1);
         OpcionSiRGB1.setText("Si tiene");
+        OpcionSiRGB1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(OpcionSiRGB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         LabelRGB1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelRGB1.setText("RGB");
         PanelLaptop.add(LabelRGB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        FieldRes1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(FieldRes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 160, 30));
+
+        FieldMarca1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelLaptop.add(FieldMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 160, 30));
 
         LabelMarca1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -150,6 +169,8 @@ public class Menu extends javax.swing.JFrame {
         PanelLaptop.add(LabelResolucion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
 
         TabbedPane.addTab("Agregar Laptop", PanelLaptop);
+
+        PanelEscritorio.setBackground(new java.awt.Color(153, 153, 255));
 
         LabelRam1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelRam1.setText("Cantidad de RAM");
@@ -170,6 +191,11 @@ public class Menu extends javax.swing.JFrame {
         LabelIP1.setText("IP");
 
         FieldIP1.setText("192.168.");
+        FieldIP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldIP1ActionPerformed(evt);
+            }
+        });
 
         LabelMask1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelMask1.setText("Máscara de Red");
@@ -188,6 +214,8 @@ public class Menu extends javax.swing.JFrame {
         GrupoAlmacen.add(BtnSDD);
         BtnSDD.setText("SDD");
 
+        BtnGuardarDesktop1.setBackground(new java.awt.Color(0, 51, 153));
+        BtnGuardarDesktop1.setForeground(new java.awt.Color(255, 255, 255));
         BtnGuardarDesktop1.setText("Guardar PC de Escritorio");
         BtnGuardarDesktop1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnGuardarDesktop1.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +224,8 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        BtnRegresarDesk.setBackground(new java.awt.Color(0, 51, 153));
+        BtnRegresarDesk.setForeground(new java.awt.Color(255, 255, 255));
         BtnRegresarDesk.setText("Regresar");
         BtnRegresarDesk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRegresarDesk.addActionListener(new java.awt.event.ActionListener() {
@@ -209,107 +239,101 @@ public class Menu extends javax.swing.JFrame {
         PanelEscritorioLayout.setHorizontalGroup(
             PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(LabelIP1)
-                .addGap(139, 139, 139)
-                .addComponent(LabelRam1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(FieldIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(FieldRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(LabelMask1)
-                .addGap(17, 17, 17)
-                .addComponent(LabelCantAlmacen1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(FieldMask1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(FieldAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(LabelHost1)
-                .addGap(55, 55, 55)
-                .addComponent(LabelGrafica1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(LabelTipoAlmacen1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(BtnGuardarDesktop1))
-            .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnRegresarDesk, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(FieldHost1))
-                .addGap(55, 55, 55)
                 .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                        .addComponent(BtnTieneGraf)
-                        .addGap(20, 20, 20)
-                        .addComponent(BtnNoTieneGraf))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEscritorioLayout.createSequentialGroup()
-                        .addComponent(BtnHDD)
-                        .addGap(34, 34, 34)
-                        .addComponent(BtnSDD))))
+                        .addGap(170, 170, 170)
+                        .addComponent(BtnGuardarDesktop1))
+                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(FieldIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(BtnRegresarDesk, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LabelMask1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LabelHost1)
+                                .addComponent(FieldMask1)
+                                .addComponent(FieldHost1)))
+                        .addGap(72, 72, 72)
+                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelCantAlmacen1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                                .addComponent(BtnHDD)
+                                .addGap(60, 60, 60)
+                                .addComponent(BtnSDD))
+                            .addComponent(LabelTipoAlmacen1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                                    .addComponent(BtnTieneGraf)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BtnNoTieneGraf))
+                                .addComponent(FieldAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LabelGrafica1)))))
+                .addGap(0, 75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEscritorioLayout.createSequentialGroup()
+                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FieldRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(LabelIP1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabelRam1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(166, 166, 166))
         );
         PanelEscritorioLayout.setVerticalGroup(
             PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(17, 17, 17)
+                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(LabelIP1))
-                    .addComponent(LabelRam1))
-                .addGap(6, 6, 6)
-                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FieldIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelIP1)
+                        .addGap(6, 6, 6)
+                        .addComponent(FieldIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
                     .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(FieldRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(LabelRam1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(FieldRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
+                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelMask1)
-                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(LabelCantAlmacen1)))
-                .addGap(16, 16, 16)
+                    .addComponent(LabelCantAlmacen1))
                 .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FieldMask1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FieldAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelHost1)
                     .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(LabelGrafica1)))
-                .addGap(4, 4, 4)
-                .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FieldHost1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(FieldMask1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(LabelHost1)
+                        .addGap(12, 12, 12)
+                        .addComponent(FieldHost1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelEscritorioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(FieldAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelGrafica1)
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnTieneGraf)
                             .addComponent(BtnNoTieneGraf))))
-                .addGap(12, 12, 12)
-                .addComponent(LabelTipoAlmacen1)
                 .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelEscritorioLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(6, 6, 6)
+                        .addComponent(LabelTipoAlmacen1)
+                        .addGap(22, 22, 22)
+                        .addGroup(PanelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnHDD)
                             .addComponent(BtnSDD)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEscritorioLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addGap(37, 37, 37)
                         .addComponent(BtnRegresarDesk, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(67, 67, 67)
                 .addComponent(BtnGuardarDesktop1))
         );
 
         TabbedPane.addTab("Agregar PC de Escritorio", PanelEscritorio);
+
+        PanelListar.setBackground(new java.awt.Color(153, 153, 255));
 
         TextAreaListar.setColumns(20);
         TextAreaListar.setRows(5);
@@ -334,6 +358,8 @@ public class Menu extends javax.swing.JFrame {
 
         TabbedPane.addTab("Listar PC", PanelListar);
 
+        PanelEliminar.setBackground(new java.awt.Color(153, 153, 255));
+
         TextAreaElim.setColumns(20);
         TextAreaElim.setRows(5);
         jScrollPane2.setViewportView(TextAreaElim);
@@ -341,7 +367,9 @@ public class Menu extends javax.swing.JFrame {
         LabelPos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelPos.setText("Posicion a Eliminar");
 
+        BtnElimPC.setBackground(new java.awt.Color(0, 51, 153));
         BtnElimPC.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnElimPC.setForeground(new java.awt.Color(255, 255, 255));
         BtnElimPC.setText("Eliminar");
         BtnElimPC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,66 +432,75 @@ public class Menu extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelTitulo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        LabelTitulo.setText("Menu Principal");
-
+        BtnCrudPC.setBackground(new java.awt.Color(0, 51, 153));
+        BtnCrudPC.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrudPC.setText("Crud PC");
+        BtnCrudPC.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BtnCrudPC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCrudPC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCrudPCActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnCrudPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 106, 121, 45));
 
+        BtnIngresarPC.setBackground(new java.awt.Color(0, 51, 153));
+        BtnIngresarPC.setForeground(new java.awt.Color(255, 255, 255));
         BtnIngresarPC.setText("Ingrese PC");
+        BtnIngresarPC.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BtnIngresarPC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnIngresarPC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIngresarPCActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnIngresarPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 169, 121, 45));
 
+        BtnSalir.setBackground(new java.awt.Color(0, 51, 153));
+        BtnSalir.setForeground(new java.awt.Color(255, 255, 255));
         BtnSalir.setText("Salir");
+        BtnSalir.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BtnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 241, 121, 45));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 171, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BtnCrudPC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnIngresarPC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                            .addComponent(BtnSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(184, 184, 184))))
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        LabelTitulo.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        LabelTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        LabelTitulo.setText("Menu Principal");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(LabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
                 .addComponent(LabelTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(BtnCrudPC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnIngresarPC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
+        BtnSalir.setBackground(Color.red);
+        BtnSalir.setForeground(Color.white);
         JOptionPane.showMessageDialog(null, "Saliendo del sistema...");
         System.exit(0);
     }//GEN-LAST:event_BtnSalirActionPerformed
@@ -615,6 +652,10 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "PC de Escritorio Agregada");
     }//GEN-LAST:event_BtnGuardarDesktop1ActionPerformed
 
+    private void FieldIP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldIP1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldIP1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -745,6 +786,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaElim;
     private javax.swing.JTextArea TextAreaListar;
     private javax.swing.JTextField TextFieldElim;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
