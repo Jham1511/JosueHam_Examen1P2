@@ -191,11 +191,6 @@ public class Menu extends javax.swing.JFrame {
         LabelIP1.setText("IP");
 
         FieldIP1.setText("192.168.");
-        FieldIP1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldIP1ActionPerformed(evt);
-            }
-        });
 
         LabelMask1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         LabelMask1.setText("Máscara de Red");
@@ -531,42 +526,7 @@ public class Menu extends javax.swing.JFrame {
             String cadena = ingrese.next(); //Por si acaso en la ejecucion no te fijaste, aquí es donde se ve el dato despues de ingresar la posicion de la pc
             //Cuando es por ejemplo andres# se lee
             if (cadena.equals("ping_") || cadena.equals("ping")) {
-                System.out.println("Ingrese la IP: ");
-                String cad = ingrese.next();
-                String[] tokens = cad.split("\\.");
-                int dec = Integer.parseInt(tokens[3]);
-                int bin = decToBin(dec);
-                String[] tokensAtri = compus.get(pos).getIP().split("\\.");
-                int decAtributo = Integer.parseInt(tokensAtri[3]);
-                int binAtri = decToBin(decAtributo);
-                if (bin == binAtri) {
-                    String[] MaskAtri = compus.get(pos).getMascara().split("\\.");
-                    int decMaskAtri = Integer.parseInt(MaskAtri[3]);
-                    int binMaskAtri = decToBin(decMaskAtri);
-                    if (bin == binMaskAtri) {
-                        System.out.println("Pinging to " + cad + " with 32 bits of data: ");
-                        for (int i = 0; i < 4; i++) {
-                            System.out.println("Reply from " + cad + ":" + " bytes = 32 time=37ms TTL=46");
-                        }
-                        System.out.println("Ping statistics for " + cad + ":");
-                        System.out.println("       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)");
-                    } else if (bin != binMaskAtri) {
-                        System.out.println("Pinging to " + cad + " with 32 bits of data: ");
-                        for (int i = 0; i < 4; i++) {
-                            System.out.println("Reply from " + cad + ":" + " Destination Host Unreachable");
-                        }
-                        System.out.println("Ping statistics for " + cad + ":");
-                        System.out.println("       Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)");
-                    } else if (bin != binAtri) {
-                        System.out.println("Pinging to " + cad + " with 32 bits of data: ");
-                        for (int i = 0; i < 4; i++) {
-                            System.out.println("Request timed out");
-                        }
-                        System.out.println("Ping statistics for " + cad + ":");
-                        System.out.println("       Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)");
-                    }
-
-                }
+                com.ping(compus, pos);
             } else if (cadena.equals("show")) {
                 System.out.println(listarPC());
                 this.setVisible(true);
@@ -652,10 +612,6 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "PC de Escritorio Agregada");
     }//GEN-LAST:event_BtnGuardarDesktop1ActionPerformed
 
-    private void FieldIP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldIP1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FieldIP1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -733,6 +689,7 @@ public class Menu extends javax.swing.JFrame {
         }
     }//Fin del metodo de decToBin
     ArrayList<PC> compus = new ArrayList();
+    PC com = new PC();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPC;
     private javax.swing.JButton BtnElimPC;
